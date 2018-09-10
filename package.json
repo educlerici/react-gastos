@@ -2,7 +2,7 @@
   "name": "gastos",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://educlerici.github.io/react-gastos/.",
+  "homepage": "https://educlerici.github.io/react-gastos/",
   "dependencies": {
     "bootstrap": "^4.1.2",
     "gh-pages": "^1.2.0",
