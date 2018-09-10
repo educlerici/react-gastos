@@ -24,11 +24,11 @@ class Formulario extends Component {
       <form className="mt-4" onSubmit={this.crearGasto}>
         <h2>¡ Agrega tus gastos aquí !</h2>
 
-        <div className="form-group">
+        <div className="form-group mt-3">
           <label htmlFor="nombreGastoInput">Nombre Gasto</label>
           <input
             type="text"
-            className="htmlForm-control"
+            className="form-control"
             id="nombreGastoInput"
             aria-describedby="emailHelp"
             placeholder="Ej. Transporte"

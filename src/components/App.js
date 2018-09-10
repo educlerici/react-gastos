@@ -5,12 +5,29 @@ import "../css/App.css";
 import Navbar from "./Navbar";
 import Formulario from "./Formulario";
 import Listado from "./Listado";
+import ControlPresupuesto from "./ControlPresupuesto";
 
 class App extends Component {
   state = {
     presupuesto: "",
     restante: "",
     gastos: {}
+  };
+
+  componentDidMount() {
+    this.obtenerPresupuesto();
+  }
+
+  obtenerPresupuesto = () => {
+    let presupuesto = prompt("¿Cuál es el Presupuesto?");
+    if (presupuesto > 0) {
+      this.setState({
+        presupuesto: presupuesto,
+        restante: presupuesto
+      });
+    } else {
+      this.obtenerPresupuesto();
+    }
   };
 
   agregarGasto = gasto => {
@@ -25,7 +42,23 @@ class App extends Component {
       gastos: gastos
     });
 
-    console.log(gastos);
+    this.restarRestante(gasto.cantidadGasto);
+  };
+
+  restarRestante = cantidad => {
+    // Pasar cantidad a numerico
+    let restar = Number(cantidad);
+
+    // Copia restante
+    let restante = this.state.restante;
+
+    // Restar
+    restante -= restar;
+
+    // Actualizar State
+    this.setState({
+      restante
+    });
   };
 
   render() {
@@ -39,6 +72,10 @@ class App extends Component {
             </div>
             <div className="col-md-6">
               <Listado gastos={this.state.gastos} />
+              <ControlPresupuesto
+                presupuesto={this.state.presupuesto}
+                restante={this.state.restante}
+              />
             </div>
           </div>
         </div>

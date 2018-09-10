@@ -5,7 +5,7 @@ import Gasto from "./Gasto";
 class Listado extends Component {
   render() {
     return (
-      <div>
+      <div className="my-3">
         <p>Desde el Listado</p>
         {Object.keys(this.props.gastos).map(key => (
           <Gasto key={key} gasto={this.props.gastos[key]} />
